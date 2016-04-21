@@ -5,21 +5,40 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 #include <time.h>
 
 /* Display the maze. */
-void ShowMaze(const char *maze, int width, int height) {
-  int x, y;
-  for(y = 0; y < height; y++) {
-    for(x = 0; x < width; x++) {
-      switch(maze[y * width + x]) {
-      case 1:  printf("X");  break;
-      case 2:  printf("<>");  break;
-      default: printf("*");  break;
-      }
+void ShowMaze(const char *maze, int width, int height) 
+{	
+  int x, y, fd;
+  
+  if ((fd = open("gen", O_CREAT, S_IRWXU | S_IRWXG | S_IRWXO)) == -1)
+    printf("open error\n");
+  for(y = 0; y < height; y++) 
+    {
+      for(x = 0; x < width; x++) 
+	{
+	  if (maze[y * width + x] == 1)
+	    write(fd, "[]", 2);
+	  else if (maze[y * width + x] == 2)
+	    write(fd, "<>", 2);
+	  else
+	    write(fd, "  ", 2);
+	  /* switch(maze[y * width + x])  */
+	  /*   { */
+	  /*   case 1:   write(fd, "[]", 2; break; */
+	  /*   case 2:   write(fd, "<>", 2); break; */
+	  /*   default:  write(fd, "  ", 2); break; */
+		/* case 1:  printf("[]");  break; */
+		/* case 2:  printf("<>");  break; */
+		/* default: printf("  ");  break; */
+	}
+      printf("\n");
     }
-    printf("\n");
-  }
+  close(fd);
 }
 
 void CarveMaze(char *maze, int width, int height, int x, int y) {
@@ -108,7 +127,6 @@ void SolveMaze(char *maze, int width, int height) {
   /* Remove the entry and exit. */
   maze[0 * width + 1] = 1;
   maze[(height - 1) * width + (width - 2)] = 1;
-
   forward = 1;
   dir = 0;
   count = 0;
