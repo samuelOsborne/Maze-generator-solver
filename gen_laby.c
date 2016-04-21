@@ -10,16 +10,15 @@
 #include <fcntl.h>
 #include <time.h>
 
-/* Display the maze. */
-void ShowMaze(const char *maze, int width, int height) 
-{	
+void ShowMaze(const char *maze, int width, int height)
+{
   int x, y, fd;
-  
-  if ((fd = open("gen", O_CREAT, S_IRWXU | S_IRWXG | S_IRWXO)) == -1)
+
+  if ((fd = open("gen", O_CREAT | O_WRONLY, 0644)) == -1)
     printf("open error\n");
-  for(y = 0; y < height; y++) 
+  for(y = 0; y < height; y++)
     {
-      for(x = 0; x < width; x++) 
+      for(x = 0; x < width; x++)
 	{
 	  if (maze[y * width + x] == 1)
 	    write(fd, "[]", 2);
@@ -27,16 +26,9 @@ void ShowMaze(const char *maze, int width, int height)
 	    write(fd, "<>", 2);
 	  else
 	    write(fd, "  ", 2);
-	  /* switch(maze[y * width + x])  */
-	  /*   { */
-	  /*   case 1:   write(fd, "[]", 2; break; */
-	  /*   case 2:   write(fd, "<>", 2); break; */
-	  /*   default:  write(fd, "  ", 2); break; */
-		/* case 1:  printf("[]");  break; */
-		/* case 2:  printf("<>");  break; */
-		/* default: printf("  ");  break; */
 	}
-      printf("\n");
+      write(fd, "\n", 1);
+      /* printf("\n"); */
     }
   close(fd);
 }
