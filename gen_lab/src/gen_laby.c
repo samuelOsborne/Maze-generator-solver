@@ -5,7 +5,7 @@
 ** Login   <samuel@epitech.net>
 ** 
 ** Started on  Fri Apr 22 17:12:21 2016 Samuel
-** Last update Fri Apr 22 17:38:31 2016 Samuel
+** Last update Mon Apr 25 11:15:46 2016 Samuel
 */
 
 #include <unistd.h>
@@ -33,11 +33,11 @@ void		ShowMaze(const char *maze, int width, int height)
       while (x < width)
 	{
 	  if (maze[y * width + x] == 1)
-	    write(fd, "[]", 2);
+	    write(fd, "X", 1);
 	  else if (maze[y * width + x] == 2)
-	    write(fd, "<>", 2);
+	    write(fd, "o", 1);
 	  else
-	    write(fd, "  ", 2);
+	    write(fd, "*", 1);
 	  x++;
 	}
       write(fd, "\n", 1);
@@ -77,7 +77,7 @@ void		check_maze(t_maze *maze)
 void		CarveMaze(char *mazer, int width, int height, int x, int y) 
 {
   t_maze	maze;
-  
+
   maze_start(&maze);
   while (maze.count < 4)
     {
@@ -186,9 +186,9 @@ void	SolveMaze(char *maze, int width, int height)
       solve.dy = 0;
       solve_check(&solve); /*the starting block is filled in */
       if((solve.forward && maze[(solve.y + solve.dy)
-				    * width + (solve.x + solve.dx)] == 0)
-	    || (!solve.forward && maze[(solve.y + solve.dy)
-				       * width + (solve.x + solve.dx)] == 2))
+				* width + (solve.x + solve.dx)] == 0)
+	 || (!solve.forward && maze[(solve.y + solve.dy)
+				    * width + (solve.x + solve.dx)] == 2))
 	{
 	  maze[solve.y * width + solve.x] = solve.forward ? 2 : 3;
 	  solve_increment(&solve);
@@ -201,6 +201,21 @@ void	SolveMaze(char *maze, int width, int height)
   maze[(height - 1) * width + (width - 2)] = 2;
 }
 
+int	check_args(int width, int height, int argc, char **argv)
+{
+  if (width < 7 || height < 7)
+    {
+      printf("error: illegal maze size\n");
+      return (1);
+    }
+  if (argc == 4 && argv[3][0] != 's')
+    {
+      printf("error: invalid argument\n");
+      return (1);
+    }
+  return (0);
+}
+
 int	main(int argc,char **argv)
 {
   int	width;
@@ -210,26 +225,14 @@ int	main(int argc,char **argv)
   if (argc != 3 && argc != 4)
     {
       printf("usage: maze <width> <height> [s]\n");
-      exit(EXIT_FAILURE);
+      return (0);
     }
    width = my_getnbr(argv[1]) * 2 + 3;
    height = my_getnbr(argv[2]) * 2 + 3;
-   if (width < 7 || height < 7)
-     {
-       printf("error: illegal maze size\n");
-       exit(EXIT_FAILURE);
-     }
-   if (argc == 4 && argv[3][0] != 's')
-     {
-       printf("error: invalid argument\n");
-       exit(EXIT_FAILURE);
-     }
-   maze = (char*)malloc(width * height * sizeof(char));
-   if (maze == NULL)
-     {
-       printf("error: not enough memory\n");
-       exit(EXIT_FAILURE);
-     }
+   if ((check_args(width, height, argc, argv)) == 1)
+     return (1);
+   if ((maze = malloc(width * height * sizeof(char))) == NULL)
+     return (0);
    GenerateMaze(maze, width, height);
    ShowMaze(maze, width, height);
    if (argc == 4)
@@ -238,5 +241,5 @@ int	main(int argc,char **argv)
        ShowMaze(maze, width, height);
      }
    free(maze);
-   exit(EXIT_SUCCESS);
+   return (0);
 }
