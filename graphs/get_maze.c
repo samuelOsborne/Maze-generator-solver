@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Mon Apr 25 17:10:45 2016 Arnaud Costa
-** Last update Tue Apr 26 14:38:22 2016 Arnaud Costa
+** Last update Tue Apr 26 16:43:19 2016 Arnaud Costa
 */
 
 #include <stdlib.h>
@@ -14,23 +14,14 @@
 
 int	feed_node(char	**map)
 {
-  int		i;
   int		x;
-  t_maillon	*new_nodes;
-  t_maillon	*tmp_nodes;
+  int		y;
 
-  i = 0;
   x = 0;
-  while (str && str[i] != '\0')
+  y = 0;
+  while (str && str[x] != '\0')
     {
-      if (str[i] == '*')
-	{
-	  printf("I'find a * at %d - %d\n", y , x);
-	  //new_nodes = create_maillon(x, y);
-	  //link_maillon(new_nodes, tmp_nodes);
-	}
-      i++;
-      x++;
+
     }
 }
 

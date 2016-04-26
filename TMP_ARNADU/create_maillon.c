@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Wed Mar 30 18:37:17 2016 Arnaud Costa
-** Last update Mon Apr 25 17:23:38 2016 Arnaud Costa
+** Last update Tue Apr 26 16:57:39 2016 Arnaud Costa
 */
 
 #include <stdlib.h>
@@ -29,5 +29,6 @@ t_maillon       *create_maillon(int x, int y)
       elem->next[i] = NULL;
       i++;
     }
+  elem->parent = NULL;
   return (elem);
 }
