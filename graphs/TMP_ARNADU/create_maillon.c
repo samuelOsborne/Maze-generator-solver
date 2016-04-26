@@ -5,25 +5,26 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Wed Mar 30 18:37:17 2016 Arnaud Costa
-** Last update Wed Apr 13 10:53:03 2016 Arnaud Costa
+** Last update Mon Apr 25 17:23:38 2016 Arnaud Costa
 */
 
 #include <stdlib.h>
 #include "graph.h"
 
-t_maillon       *create_maillon(int data)
+t_maillon       *create_maillon(int x, int y)
 {
   t_maillon     *elem;
   int           i;
 
   i = 0;
-  elem = malloc(sizeof(elem));
-  elem->next = malloc(sizeof(elem) * 10);
-  if (elem == NULL)
+  if ((elem = malloc(sizeof(elem))) == NULL)
     return (NULL);
-  elem->data = data;
+  if ((elem->next = malloc(sizeof(elem) * 5)) == NULL)
+    return (NULL);
   elem->id = 0;
-  while (i <= 10)
+  elem->x = x;
+  elem->y = y;
+  while (i <= 5)
     {
       elem->next[i] = NULL;
       i++;
