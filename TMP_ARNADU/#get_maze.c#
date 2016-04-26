@@ -12,23 +12,16 @@
 #include "graph.h"
 #include "get_next_line.h"
 
-int	feed_node(t_maillon *start_nodes, char *str, int y)
+int	feed_node(char *str)
 {
   int		i;
   int		x;
-  t_maillon	*new_nodes;
-  t_maillon	*tmp_nodes;
 
   i = 0;
   x = 0;
   while (str && str[i] != '\0')
     {
-      if (str[i] == '*')
-	{
-	  printf("I'find a * at %d - %d\n", y , x);
-	  //new_nodes = create_maillon(x, y);
-	  //link_maillon(new_nodes, tmp_nodes);
-	}
+      
       i++;
       x++;
     }
@@ -38,11 +31,8 @@ int	get_maze(int fd)
 {
   char		*str;
   int		y;
-  t_maillon	*start_nodes;
 
   y = 0;
-  /* if ((start_nodes = create_maillon(0, 0)) == NULL) */
-  /*   return (-1); */
   while (str = get_next_line(fd))
     {
       printf("beafor feed_node = %s\n", str);
