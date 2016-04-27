@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Wed Mar 30 18:37:17 2016 Arnaud Costa
-** Last update Wed Apr 27 14:28:12 2016 Samuel
+** Last update Wed Apr 27 16:11:53 2016 Samuel
 */
 
 #include <stdlib.h>
@@ -17,9 +17,9 @@ t_maillon       *create_maillon(int x, int y, int side, t_maillon *parent)
   int           i;
 
   i = 0;
-  if ((elem = malloc(sizeof(elem))) == NULL)
+  if ((elem = malloc(sizeof(t_maillon))) == NULL)
     return (NULL);
-  if ((elem->next = malloc(sizeof(elem) * 5)) == NULL)
+  if ((elem->next = malloc(sizeof(t_maillon) * 5)) == NULL)
     return (NULL);
   elem->id = 0;
   elem->x = x;
@@ -31,6 +31,5 @@ t_maillon       *create_maillon(int x, int y, int side, t_maillon *parent)
       elem->next[i] = NULL;
       i++;
     }
-  elem->parent = NULL;
   return (elem);
 }

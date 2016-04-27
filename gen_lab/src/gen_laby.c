@@ -5,7 +5,7 @@
 ** Login   <samuel@epitech.net>
 ** 
 ** Started on  Fri Apr 22 17:12:21 2016 Samuel
-** Last update Mon Apr 25 11:15:46 2016 Samuel
+** Last update Wed Apr 27 15:46:31 2016 Samuel
 */
 
 #include <unistd.h>
@@ -180,7 +180,7 @@ void	SolveMaze(char *maze, int width, int height)
 
   /* Remove the entry and exit. */
   solve_start(&solve, width, height, maze);
-  while(solve.x != width - 2 || solve.y != height - 2)
+  while (solve.x != width - 2 || solve.y != height - 2)
     {
       solve.dx = 0; 
       solve.dy = 0;

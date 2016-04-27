@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Mon Apr 25 17:10:45 2016 Arnaud Costa
-** Last update Wed Apr 27 15:21:49 2016 Samuel
+** Last update Wed Apr 27 17:40:31 2016 Samuel
 */
 
 #include <stdlib.h>
@@ -14,7 +14,7 @@
 
 #define LEFT 1
 #define RIGHT 2
-#define UP 0
+#define UP 4
 #define DOWN 3
 
 int	size_map(char **map)
@@ -42,38 +42,34 @@ int	feed_node(char	**map, t_maillon *node)
   int		i;
 
   i = 0;
-  printf("node x : %d\n", node->x);
-  printf("node y : %d\n", node->y);
-  if ((node->x == size_map(map) - 1) && (node->y == length_map(map) - 1)) /* check end */
-    {
-      printf("at the end\n");
-    }
+  if ((node->y == size_map(map) - 1) && (node->x == length_map(map) - 1)) /* check end */
+    return (0);
   if ((node->y - 1 >= 0) && node->side != DOWN && map && map[node->y - 1][node->x] == '*') /* UP */
-    {
-      node->next[i] = create_maillon(node->x, node->y - 1, UP, node);
-      printf("up");
-    }
+    node->next[i++] = create_maillon(node->x, node->y - 1, UP, node);
   if ((my_strlen(map[node->y]) >= node->x + 1 && node->side != LEFT && map && map[node->y][node->x + 1] == '*')) /*right*/
-    {
-      node->next[i] = create_maillon(node->x + 1, node->y, RIGHT, node);
-      printf("right");
-    }
-  if (node->y + 1 <= h_tab(map) && node->side != UP && map && map[node->y + 1][node->x] == '*') /* down */
-    {
-      node->next[i] = create_maillon(node->x, node->y + 1, DOWN, node);
-      printf("down");
-    }
+    node->next[i++] = create_maillon(node->x + 1, node->y, RIGHT, node);
+  if (node->y + 1 <= (h_tab(map) - 1) && node->side != UP && map && map[node->y + 1][node->x] == '*') /* down */
+    node->next[i++] = create_maillon(node->x, node->y + 1, DOWN, node);
   if (node->x - 1 >= 0 && node->side != RIGHT && map && map[node->y][node->x - 1] == '*') /* left */
+    node->next[i++] = create_maillon(node->x - 1, node->y, LEFT, node);
+  i = 0;
+  while (node->next[i] != NULL)
     {
-      node->next[i] = create_maillon(node->x - 1, node->y, LEFT, node);
-      printf("left");
-    }
-  while (node->next[i])
-    {
-      feed_node(map, node->next[i]);
+      if ((feed_node(map, node->next[i])) == 0)
+	{
+	  i = 0;
+	  while (node->parent != NULL)
+	    {
+	      map[node->y][node->x] = 'o';
+	      node = node->parent;
+	    }
+	  map[0][0] = 'o';
+	  map[size_map(map) - 1][length_map(map) - 1] = 'o';
+	  return (0);
+	}
       i++;
     }
-  /* utilser les x y des maillons */
+  return (1);
 }
 
 int	h_tab(char **tab)
@@ -126,10 +122,8 @@ void	get_maze(int fd)
       tab = my_realloc_tab(tab);
       free(str);
     }
-  print_tab(tab);
-  printf("%d\n", size_map(tab));
-  printf("%d\n", length_map(tab));
   maillon = create_maillon(0, 0, NULL, NULL);
   feed_node(tab, maillon);
-  /* free_tab(tab); */
+  print_tab(tab);
+  free_tab(tab);
 }
