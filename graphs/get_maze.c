@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Mon Apr 25 17:10:45 2016 Arnaud Costa
-** Last update Wed Apr 27 13:43:19 2016 Samuel
+** Last update Wed Apr 27 13:44:55 2016 Arnaud Costa
 */
 
 #include <stdlib.h>
@@ -29,7 +29,7 @@ int	feed_node(char	**map, t_maillon *node)
   if ((y - 1 >= 0) && node->side != DOWN && map && map[y - 1][x] == '*') /* UP */
     {
       node->next[i] = create_maillon(x, y - 1, UP);
-      
+
     }
   if ((my_strlen(str[y]) >= x + 1 && node->side != LEFT && map && map[y][x + 1] == '*')) /*right*/
     {
@@ -44,7 +44,7 @@ int	feed_node(char	**map, t_maillon *node)
   if (x - 1 >= 0 && node->side != RIGHT && map && map[y][x - 1] == '*') /* left */
     {
       node->next[i] = create_maillon(x - 1, y, LEFT);
-      
+
     }
   while (node->next[i])
     {
@@ -84,7 +84,7 @@ char	**my_realloc_tab(char **tab)
   return (new_tab);
 }
 
-char	**get_maze(int fd)
+void	get_maze(int fd)
 {
   char		**tab;
   char		*str;
@@ -108,5 +108,4 @@ char	**get_maze(int fd)
   maillon = create_maillon(0, 0);
   feed_node(tab, maillon);
   free_tab(tab);
-  /* return (tab); */
 }

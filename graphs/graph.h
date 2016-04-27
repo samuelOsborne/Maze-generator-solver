@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Wed Mar 30 16:37:41 2016 Arnaud Costa
-** Last update Tue Apr 26 16:58:29 2016 Arnaud Costa
+** Last update Wed Apr 27 13:51:29 2016 Arnaud Costa
 */
 
 #ifndef MY_GRAPH_H_
@@ -16,6 +16,7 @@ typedef struct		s_maillon
   int			x;
   int			y;
   int			id;
+  int			side;
   struct s_maillon	**next;
   struct s_maillon	*parent;
 }			t_maillon;
