@@ -5,13 +5,13 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Wed Mar 30 18:37:17 2016 Arnaud Costa
-** Last update Wed Apr 27 13:51:16 2016 Arnaud Costa
+** Last update Wed Apr 27 14:28:12 2016 Samuel
 */
 
 #include <stdlib.h>
 #include "graph.h"
 
-t_maillon       *create_maillon(int x, int y, int side, t_maillion *parent)
+t_maillon       *create_maillon(int x, int y, int side, t_maillon *parent)
 {
   t_maillon     *elem;
   int           i;
