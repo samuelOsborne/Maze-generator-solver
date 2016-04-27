@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Mon Apr 25 17:10:45 2016 Arnaud Costa
-** Last update Wed Apr 27 13:15:24 2016 Samuel
+** Last update Wed Apr 27 13:43:19 2016 Samuel
 */
 
 #include <stdlib.h>
@@ -17,15 +17,15 @@
 #define UP 0
 #define DOWN 3
 
-int	feed_node(char	**map, t_node *node)
+int	feed_node(char	**map, t_maillon *node)
 {
-  int		x;
-  int		y;
   int		i;
 
-  /* x = 0; */
-  /* y = 0; */
   i = 0;
+  if () /* check end */
+    {
+
+    }
   if ((y - 1 >= 0) && node->side != DOWN && map && map[y - 1][x] == '*') /* UP */
     {
       node->next[i] = create_maillon(x, y - 1, UP);
@@ -33,22 +33,22 @@ int	feed_node(char	**map, t_node *node)
     }
   if ((my_strlen(str[y]) >= x + 1 && node->side != LEFT && map && map[y][x + 1] == '*')) /*right*/
     {
-      node->next[i] = create_maillon(x, y - 1, RIGHT);
+      node->next[i] = create_maillon(x + 1, y, RIGHT);
 
     }
   if (y + 1 <= h_tab(map) && node->side != UP && map && map[y + 1][x] == '*') /* down */
     {
-      node->next[i] = create_maillon(x, y - 1, DOWN);
+      node->next[i] = create_maillon(x, y + 1, DOWN);
 
     }
   if (x - 1 >= 0 && node->side != RIGHT && map && map[y][x - 1] == '*') /* left */
     {
-      node->next[i] = create_maillon(x, y - 1, LEFT);
-
+      node->next[i] = create_maillon(x - 1, y, LEFT);
+      
     }
-  while (node->next[])
+  while (node->next[i])
     {
-      /* recursive */
+      feed_node(map, node->next[i]);
       i++;
     }
   /* utilser les x y des maillons */
@@ -88,6 +88,7 @@ char	**get_maze(int fd)
 {
   char		**tab;
   char		*str;
+  t_maillon	*maillon;
   int		i;
 
   i = 0;
@@ -104,6 +105,8 @@ char	**get_maze(int fd)
       free(str);
     }
   print_tab(tab);
+  maillon = create_maillon(0, 0);
+  feed_node(tab, maillon);
   free_tab(tab);
-  return (tab);
+  /* return (tab); */
 }
