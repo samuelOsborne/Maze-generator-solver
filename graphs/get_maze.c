@@ -5,24 +5,53 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Mon Apr 25 17:10:45 2016 Arnaud Costa
-** Last update Tue Apr 26 16:43:19 2016 Arnaud Costa
+** Last update Wed Apr 27 13:15:24 2016 Samuel
 */
 
 #include <stdlib.h>
 #include "graph.h"
 #include "get_next_line.h"
 
-int	feed_node(char	**map)
+#define LEFT 1
+#define RIGHT 2
+#define UP 0
+#define DOWN 3
+
+int	feed_node(char	**map, t_node *node)
 {
   int		x;
   int		y;
+  int		i;
 
-  x = 0;
-  y = 0;
-  while (str && str[x] != '\0')
+  /* x = 0; */
+  /* y = 0; */
+  i = 0;
+  if ((y - 1 >= 0) && node->side != DOWN && map && map[y - 1][x] == '*') /* UP */
     {
+      node->next[i] = create_maillon(x, y - 1, UP);
+      
+    }
+  if ((my_strlen(str[y]) >= x + 1 && node->side != LEFT && map && map[y][x + 1] == '*')) /*right*/
+    {
+      node->next[i] = create_maillon(x, y - 1, RIGHT);
 
     }
+  if (y + 1 <= h_tab(map) && node->side != UP && map && map[y + 1][x] == '*') /* down */
+    {
+      node->next[i] = create_maillon(x, y - 1, DOWN);
+
+    }
+  if (x - 1 >= 0 && node->side != RIGHT && map && map[y][x - 1] == '*') /* left */
+    {
+      node->next[i] = create_maillon(x, y - 1, LEFT);
+
+    }
+  while (node->next[])
+    {
+      /* recursive */
+      i++;
+    }
+  /* utilser les x y des maillons */
 }
 
 int	h_tab(char **tab)
