@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Mon Apr 25 17:10:45 2016 Arnaud Costa
-** Last update Thu Apr 28 10:51:23 2016 Samuel
+** Last update Thu Apr 28 11:11:29 2016 Samuel
 */
 
 #include <stdlib.h>
@@ -92,7 +92,7 @@ void	get_maze(int fd)
       tab = my_realloc_tab(tab);
       free(str);
     }
-  maillon = create_maillon(0, 0, NULL, NULL);
+  maillon = create_maillon(0, 0, DOWN, (t_maillon*)NULL);
   feed_node(tab, maillon);
   print_tab(tab);
   free_tab(tab);
