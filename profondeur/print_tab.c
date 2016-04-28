@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Tue Apr 26 13:46:00 2016 Arnaud Costa
-** Last update Thu Apr 28 10:21:21 2016 Samuel
+** Last update Thu Apr 28 15:13:51 2016 Samuel
 */
 
 #include <sys/types.h>
@@ -31,19 +31,12 @@ void	my_putstr(char *str)
 void	print_tab(char **tab)
 {
   int	i;
-  int	op;
 
   i = 0;
-  if ((op = open("solved", O_CREAT | O_WRONLY | O_TRUNC, 0644)) == -1)
-    {
-      write(2, "Could not create solution file!\n", 33);
-      return ;
-    }
   while (tab[i] != NULL)
     {
-      write(op, tab[i], my_strlen(tab[i]));
-      write(op, "\n", 1);
+      write(1, tab[i], my_strlen(tab[i]));
+      write(1, "\n", 1);
       i++;
     }
-  close(op);
 }
