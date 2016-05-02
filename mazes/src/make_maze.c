@@ -5,7 +5,7 @@
 ** Login   <samuel@epitech.net>
 ** 
 ** Started on  Fri Apr 29 14:31:42 2016 Samuel
-** Last update Mon May  2 17:09:09 2016 Samuel
+** Last update Mon May  2 17:33:57 2016 Samuel
 */
 
 #include <stdlib.h>
@@ -41,16 +41,17 @@ void		print_maze(t_maze **maze, int width, int height)
 
   i = 0;
   j = 0;
-  while (i < height)
+  while (i < height - 1)
     {
       j = 0;
-      while (j < width)
+      while (j < width - 1)
         {
 	  if ((write(1, &maze[i][j].state, 1)) == -1)
 	    write(2, "write error\n", 13);
 	  j++;
         }
-      if ((write(1, "\n", 1)) == -1)
+      if (i < height - 2)
+	if ((write(1, "\n", 1)) == -1)
 	  write(2, "write error\n", 13);
       i++;
     }
