@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Mon Apr 25 17:10:45 2016 Arnaud Costa
-** Last update Thu May  5 14:39:51 2016 Arnaud Costa
+** Last update Thu May  5 20:07:29 2016 Arnaud Costa
 */
 
 #include <stdlib.h>
@@ -19,11 +19,11 @@ int		finde_maze(char **m, t_maillon *n)
   t_maillon	*tmp;
 
   i = 0;
-  if ((posi = malloc(sizeof(t_maillon *) * ((h_tab(m) + 1) * (my_strlen(m[0]) + 1)))) == NULL)
+  if ((posi = malloc(sizeof(t_maillon *) * (h_tab(m) + 1) * (my_strlen(m[0]) + 1))) == NULL)
     return (-1);
+  memset_tab(posi, (h_tab(m) + 1) * (my_strlen(m[0]) + 1));
   posi[0] = n;
   posi[1] = NULL;
-  posi[h_tab(m)] = NULL;
   while (posi[0] != NULL)
     {
       i = 0;

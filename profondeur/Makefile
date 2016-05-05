@@ -5,20 +5,22 @@
 ## Login   <samuel@epitech.net>
 ## 
 ## Started on  Wed Apr 27 14:28:35 2016 Samuel
-## Last update Thu Apr 28 14:10:52 2016 Samuel
+## Last update Thu May  5 20:16:06 2016 Arnaud Costa
 ##
 
-SRC	=	main.c			\
-		get_next_line.c		\
-		my_strlen.c		\
-		free_tab.c		\
-		my_strcpy.c		\
-		print_tab.c		\
-		create_maillon.c	\
-		get_maze.c		\
-		map_funcs.c		\
+SRC	=	src/main.c		\
+		src/get_next_line.c	\
+		src/my_strlen.c		\
+		src/free_tab.c		\
+		src/my_strcpy.c		\
+		src/print_tab.c		\
+		src/create_maillon.c	\
+		src/get_maze.c		\
+		src/map_funcs.c		\
+		src/update_tab_posi.c	\
+		src/memset_tab.c	\
 
-NAME	=	solver
+NAME	=	solver_profonder
 
 CC	=	gcc
 
@@ -26,7 +28,7 @@ OBJ	=	$(SRC:.c=.o)
 
 RM 	=	rm -f
 
-CFLAGS	=	-W -Wextra -ansi
+CFLAGS	=	-W -Wextra -ansi -g -Iinclude
 
 $(NAME)	:	$(OBJ)
 		$(CC) -o $(NAME) $(OBJ)
