@@ -5,7 +5,7 @@
 ## Login   <samuel@epitech.net>
 ## 
 ## Started on  Wed Apr 27 14:28:35 2016 Samuel
-## Last update Tue May  3 17:18:09 2016 Arnaud Costa
+## Last update Thu May  5 13:04:07 2016 Arnaud Costa
 ##
 
 SRC	=	src/main.c		\
@@ -19,7 +19,7 @@ SRC	=	src/main.c		\
 		src/map_funcs.c		\
 		src/update_tab_posi.c	\
 
-NAME	=	solver_largeur
+NAME	=	solver_profonder
 
 CC	=	gcc
 

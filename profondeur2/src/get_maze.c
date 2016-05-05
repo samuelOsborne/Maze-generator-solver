@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Mon Apr 25 17:10:45 2016 Arnaud Costa
-** Last update Thu May  5 14:39:51 2016 Arnaud Costa
+** Last update Thu May  5 14:30:16 2016 Arnaud Costa
 */
 
 #include <stdlib.h>
@@ -19,7 +19,7 @@ int		finde_maze(char **m, t_maillon *n)
   t_maillon	*tmp;
 
   i = 0;
-  if ((posi = malloc(sizeof(t_maillon *) * ((h_tab(m) + 1) * (my_strlen(m[0]) + 1)))) == NULL)
+  if ((posi = malloc(sizeof(t_maillon *) * (h_tab(m) + 1) * (my_strlen(m[0]) + 1))) == NULL)
     return (-1);
   posi[0] = n;
   posi[1] = NULL;
@@ -46,7 +46,7 @@ int		finde_maze(char **m, t_maillon *n)
       if (tmp->x - 1 >= 0 && tmp->side != RIGHT && m[tmp->y][tmp->x - 1] == '*')
   	if ((tmp->next[i++] = create_maillon(tmp->x - 1, tmp->y, LEFT, tmp)) == NULL)
   	  return (1);
-      add_tab_posi(posi, tmp);
+      posi = add_tab_posi(posi, tmp, m);
     }
   /* if ((finder(posi, m)) != 0) */
   my_putstr("Path not found\n");
@@ -122,6 +122,7 @@ void	get_maze(int fd)
   char		*str;
   int		i;
   t_maillon	*maillon;
+
   i = 0;
   if ((tab = malloc(sizeof(char *) * 2)) == NULL)
     return ;
@@ -135,7 +136,8 @@ void	get_maze(int fd)
       tab = my_realloc_tab(tab);
       free(str);
     }
-  maillon = create_maillon(0, 0, DOWN, (t_maillon*)NULL);
+  if ((maillon = create_maillon(0, 0, DOWN, (t_maillon*)NULL)) == NULL)
+    return ;
   finde_maze(tab, maillon);
   print_tab(tab);
   free_tab(tab);
