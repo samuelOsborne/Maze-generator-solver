@@ -5,7 +5,7 @@
 ** Login   <samuel@epitech.net>
 ** 
 ** Started on  Fri Apr 29 12:50:06 2016 Samuel
-** Last update Thu May 12 16:35:17 2016 Samuel
+** Last update Thu May 12 17:12:15 2016 Samuel
 */
 
 #include <sys/types.h>
@@ -20,13 +20,9 @@ int		my_strcmp(char *st1, char *st2)
   int		i;
 
   i = 0;
-  while (st1 && st1[i] && st2 && st2[i])
-    {
-      if (st1[i] != st2[i])
-        return (st1[i] - st2[i]);
-      i++;
-    }
-  return (0);
+  while (st1[i] && st2[i] && st1[i] == st2[i])
+    i++;
+  return (st1[i] - st2[i]);
 }
 
 void		imparfait(int width, int height)
