@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 ** 
 ** Started on  Fri Feb 26 16:42:24 2016 Arnaud Costa
-** Last update Fri Feb 26 16:42:28 2016 Arnaud Costa
+** Last update Thu May 12 16:35:48 2016 Samuel
 */
 
 int	my_getnbr(char *str)
@@ -30,7 +30,7 @@ int	my_getnbr(char *str)
 	res = res * 10;
       i++;
     }
-  if (type == 0)   
+  if (type == 0)
     res = res * -1;
   return (res);
 }

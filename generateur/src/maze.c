@@ -5,7 +5,7 @@
 ** Login   <samuel@epitech.net>
 ** 
 ** Started on  Fri Apr 29 12:50:06 2016 Samuel
-** Last update Mon May  2 18:06:59 2016 Samuel
+** Last update Thu May 12 16:35:17 2016 Samuel
 */
 
 #include <sys/types.h>
@@ -33,6 +33,7 @@ void		imparfait(int width, int height)
 {
   t_maze	**maze;
 
+  srand(time(NULL));
   maze = create_maze(width, height);
   init_maze(maze, width, height);
   carve_maze(maze, width, height);
@@ -62,6 +63,8 @@ int		main(int ac, char **av)
     }
   if (my_strcmp(av[3], "imparfait") == 0)
     imparfait(width, height);
+  else if (my_strcmp(av[3], "parfait") == 0)
+    parfait(width, height);
   else
     write(2, "Usage : ./maze <width> <height> <parfait/imparfait>\n", 53);
   return (0);

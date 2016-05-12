@@ -5,7 +5,7 @@
 ** Login   <samuel@epitech.net>
 **
 ** Started on  Fri Apr 29 14:31:42 2016 Samuel
-** Last update Mon May  2 18:21:53 2016 Samuel
+** Last update Thu May 12 17:01:43 2016 Samuel
 */
 
 #include <stdlib.h>
@@ -26,7 +26,7 @@ t_maze		**create_maze(int width, int height)
     return (NULL);
   while (i < height)
     {
-      if ((tmp[i] = malloc(sizeof(t_maze) * (width))) == NULL)
+      if ((tmp[i] = malloc(sizeof(t_maze) * (width) + 1)) == NULL)
         return (NULL);
       i++;
     }
@@ -78,7 +78,8 @@ void		init_maze(t_maze **maze, int width, int height)
       i++;
     }
   maze[0][0].state = '*';
-  maze[height - 1][width].state = '*';
+  maze[height - 1][width - 1].state = '*';
+  maze[height - 1][width - 2].state = '*';
 }
 
 void		free_maze(t_maze **maze, int height)
@@ -86,9 +87,10 @@ void		free_maze(t_maze **maze, int height)
   int		i;
 
   i = 0;
-  while (i < height)
+  while (i <= height)
     {
       free(maze[i]);
       i++;
     }
+  free(maze);
 }

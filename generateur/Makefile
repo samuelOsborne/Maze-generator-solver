@@ -5,13 +5,17 @@
 ## Login   <samuel@epitech.net>
 ## 
 ## Started on  Fri Apr 29 12:49:46 2016 Samuel
-## Last update Sat Apr 30 13:33:40 2016 Samuel
+## Last update Thu May 12 16:48:46 2016 Samuel
 ##
 
 SRC	=	src/maze.c		\
 		src/make_maze.c		\
 		src/my_getnbr.c		\
 		src/carve_maze.c	\
+		src/parfait.c		\
+		src/top.c		\
+		src/bottom.c		\
+		src/check_for_prob.c
 
 CC	=	gcc
 
