@@ -5,7 +5,7 @@
 ** Login   <samuel@epitech.net>
 ** 
 ** Started on  Fri Apr 29 12:50:06 2016 Samuel
-** Last update Thu May 12 17:12:15 2016 Samuel
+** Last update Thu May 12 18:01:57 2016 Samuel
 */
 
 #include <sys/types.h>
@@ -42,26 +42,6 @@ int		main(int ac, char **av)
   int		width;
   int		height;
 
-  if (ac != 4)
-    {
-      write(2, "Usage : ./maze <width> <height> <parfait/imparfait>\n", 53);
-      return (0);
-    }
-  if ((width = my_getnbr(av[1])) <= 0)
-    {
-      write(2, "Please enter a number larger than 0.\n", 38);
-      return (1);
-    }
-  if ((height = my_getnbr(av[2])) <= 0)
-    {
-      write(2, "Please enter a number larger than 0.\n", 38);
-      return (1);
-    }
-  if (my_strcmp(av[3], "imparfait") == 0)
-    imparfait(width, height);
-  else if (my_strcmp(av[3], "parfait") == 0)
-    parfait(width, height);
-  else
-    write(2, "Usage : ./maze <width> <height> <parfait/imparfait>\n", 53);
+  first_check(ac, av);
   return (0);
 }
