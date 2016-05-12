@@ -1,11 +1,11 @@
 /*
 ** map_funcs.c for map_funcs in /media/samuel/Home/osborn_s/rendu/init_ia/dante/graphs
-** 
+**
 ** Made by Samuel
 ** Login   <samuel@epitech.net>
-** 
+**
 ** Started on  Thu Apr 28 10:44:24 2016 Samuel
-** Last update Thu Apr 28 10:47:59 2016 Samuel
+** Last update Tue May  3 16:33:08 2016 Arnaud Costa
 */
 
 #include <stdlib.h>
