@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Wed Mar 30 18:37:17 2016 Arnaud Costa
-** Last update Tue May 10 13:14:40 2016 Arnaud Costa
+** Last update Fri May 13 10:48:48 2016 Arnaud Costa
 */
 
 #include <stdlib.h>
@@ -24,6 +24,7 @@ t_maillon       *create_maillon(int x, int y, int side, t_maillon *parent)
   elem->id = 0;
   elem->x = x;
   elem->y = y;
+  elem->f = 0;
   elem->side = side;
   elem->parent = parent;
   while (i <= 5)
