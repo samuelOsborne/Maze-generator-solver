@@ -6,4 +6,4 @@ fi
 filename="$1"
 maze="$2"
 
-time ./"$filename" "$maze"
+time ./"$filename" "$maze" | grep "o"

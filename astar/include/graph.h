@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Wed Mar 30 16:37:41 2016 Arnaud Costa
-** Last update Tue May  3 14:14:21 2016 Arnaud Costa
+** Last update Thu May 12 14:22:15 2016 Arnaud Costa
 */
 
 #ifndef MY_GRAPH_H_
@@ -22,13 +22,14 @@ typedef struct		s_maillon
   int			y;
   int			id;
   int			side;
+  int			f;
   struct s_maillon	**next;
   struct s_maillon	*parent;
 }			t_maillon;
 
 t_maillon	*create_maillon(int x, int y, int side, t_maillon *parent);
 t_maillon	**update_tab_posi(t_maillon **pos);
-t_maillon	        **d_tab_posi(t_maillon **posi, t_maillon *tmp);
+void		add_tab_posi(t_maillon **posi, t_maillon *tmp, char **m);
 int		find_node(t_maillon **tab, t_maillon *nodes2);
 void		print_maillon(t_maillon *maillon);
 void		link_maillon(t_maillon *maillon1, t_maillon *maillon2);

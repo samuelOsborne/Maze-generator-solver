@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Tue May  3 10:49:43 2016 Arnaud Costa
-** Last update Thu May  5 14:50:13 2016 Arnaud Costa
+** Last update Tue May 10 13:42:31 2016 Arnaud Costa
 */
 
 #include <stdlib.h>
@@ -21,36 +21,40 @@ t_maillon	**update_tab_posi(t_maillon **posi)
       posi[i] = posi[i + 1];
       i++;
     }
+  posi[i] = NULL;
   return (posi);
 }
 
 t_maillon	**add_tab_posi(t_maillon **posi, t_maillon *tmp, char **m)
 {
-  int		i;
-  int		j;
-  t_maillon	**posi2;
+  t_maillon	**tab_dest;
+  int   i;
+  int	j;
 
   i = 0;
   j = 0;
-  if ((posi2 = malloc(sizeof(t_maillon *) * ((h_tab(m) + 1) * (my_strlen(m[0]) + 1)))) == NULL)
+  if ((tab_dest = malloc(sizeof(t_maillon *) * (h_tab(m) + 1) * (my_strlen(m[0]) + 1))) == NULL)
     return (NULL);
-  while (tmp->next[j] != NULL)
+  memset_tab(tab_dest, (h_tab(m) + 1) * (my_strlen(m[0]) + 1));
+  while (tmp->next[i] != NULL)
     {
-      if (find_node(posi, tmp) == 0)
-	posi2[i++] = tmp->next[j];
-      /* i++; */
+      if ((tab_dest[i] = malloc(sizeof(t_maillon))) == NULL)
+	return (NULL);
+      tab_dest[i++] = tmp->next[j];
       j++;
     }
   j = 0;
   while (posi[j] != NULL)
     {
-      posi2[i] = posi[j];
+      if ((tab_dest[i] = malloc(sizeof(t_maillon))) == NULL)
+        return (NULL);
+      tab_dest[i] = posi[j];
       i++;
       j++;
     }
-  posi2[i] = NULL;
-  /* free(posi); */
-  return (posi2);
+  tab_dest[i] = NULL;
+  /*free_tab(posi)*/
+  return (tab_dest);
 }
 
 int	find_node(t_maillon **tab, t_maillon *nodes2)

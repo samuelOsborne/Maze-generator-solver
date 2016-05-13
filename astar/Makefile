@@ -5,7 +5,7 @@
 ## Login   <samuel@epitech.net>
 ## 
 ## Started on  Wed Apr 27 14:28:35 2016 Samuel
-## Last update Tue May 10 14:06:23 2016 Arnaud Costa
+## Last update Thu May 12 09:51:40 2016 Arnaud Costa
 ##
 
 SRC	=	src/main.c		\
@@ -20,7 +20,7 @@ SRC	=	src/main.c		\
 		src/update_tab_posi.c	\
 		src/memset_tab.c	\
 
-NAME	=	solver_largeur
+NAME	=	solver_astar
 
 CC	=	gcc
 
@@ -28,7 +28,7 @@ OBJ	=	$(SRC:.c=.o)
 
 RM 	=	rm -f
 
-CFLAGS	=	-W -Wextra -ansi -g -Iinclude
+CFLAGS	=	-W -Wextra -ansi -Iinclude
 
 $(NAME)	:	$(OBJ)
 		$(CC) -o $(NAME) $(OBJ)

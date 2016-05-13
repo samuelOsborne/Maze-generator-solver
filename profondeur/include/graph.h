@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Wed Mar 30 16:37:41 2016 Arnaud Costa
-** Last update Thu May  5 11:23:05 2016 Arnaud Costa
+** Last update Mon May  9 14:07:18 2016 Arnaud Costa
 */
 
 #ifndef MY_GRAPH_H_
