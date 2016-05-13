@@ -5,10 +5,10 @@
 ## Login   <samuel@epitech.net>
 ## 
 ## Started on  Mon Apr 18 11:19:14 2016 Samuel
-## Last update Fri May 13 09:58:02 2016 Samuel
+## Last update Fri May 13 10:01:29 2016 Samuel
 ##
 
-all		:	
+all		:
 			make -C largeur
 			make -C profondeur
 			make -C astar
@@ -18,7 +18,7 @@ clean		:
 			make -C profondeur clean
 			make -C astar clean
 
-fclean		:	
+fclean		:
 			make -C largeur fclean
 			make -C profondeur fclean
 			make -C astar fclean
