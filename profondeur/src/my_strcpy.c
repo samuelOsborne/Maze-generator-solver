@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Tue Apr 26 12:54:27 2016 Arnaud Costa
-** Last update Tue May  3 09:22:43 2016 Arnaud Costa
+** Last update Fri May 13 14:33:38 2016 Samuel
 */
 
 #include <stdlib.h>
@@ -34,7 +34,8 @@ char	**tab_cpy(char **tab_src)
     return (NULL);
   while (tab_src[i] != NULL)
     {
-      if ((tab_dest[i] = malloc(sizeof(char) * (my_strlen(tab_src[i]) + 1))) == NULL)
+      if ((tab_dest[i] = malloc(sizeof(char) *
+				(my_strlen(tab_src[i]) + 1))) == NULL)
 	return (NULL);
       my_strcpy(tab_dest[i], tab_src[i]);
       i++;

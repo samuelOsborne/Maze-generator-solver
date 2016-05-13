@@ -5,12 +5,25 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Mon Apr 25 17:10:45 2016 Arnaud Costa
-** Last update Thu May  5 20:07:29 2016 Arnaud Costa
+** Last update Fri May 13 14:23:07 2016 Samuel
 */
 
 #include <stdlib.h>
 #include "graph.h"
 #include "get_next_line.h"
+
+t_maillon	**init_posi(int size, char **m, t_maillon *n)
+{
+  t_maillon	**posi;
+
+  if ((posi = malloc(sizeof(t_maillon *) * (h_tab(m) + 1)
+		     * (my_strlen(m[0]) + 1))) == NULL)
+    return (NULL);
+  memset_tab(posi, (h_tab(m) + 1) * (my_strlen(m[0]) + 1));
+  posi[0] = n;
+  posi[1] = NULL;
+  return (posi);
+}
 
 int		finde_maze(char **m, t_maillon *n)
 {
@@ -19,11 +32,7 @@ int		finde_maze(char **m, t_maillon *n)
   t_maillon	*tmp;
 
   i = 0;
-  if ((posi = malloc(sizeof(t_maillon *) * (h_tab(m) + 1) * (my_strlen(m[0]) + 1))) == NULL)
-    return (-1);
-  memset_tab(posi, (h_tab(m) + 1) * (my_strlen(m[0]) + 1));
-  posi[0] = n;
-  posi[1] = NULL;
+  posi = init_posi(sizeof(t_maillon *), m, n);
   while (posi[0] != NULL)
     {
       i = 0;
@@ -34,56 +43,12 @@ int		finde_maze(char **m, t_maillon *n)
   	  carve_tab(tmp, m);
   	  return (0);
   	}
-      if ((tmp->y - 1 >= 0) && tmp->side != DOWN && m[tmp->y - 1][tmp->x] == '*')
-  	if ((tmp->next[i++] = create_maillon(tmp->x, tmp->y - 1, UP, tmp)) == NULL)
-  	  return (1);
-      if (m_str(m[tmp->y]) >= tmp->x + 1 && tmp->side != 1 && m[tmp->y][tmp->x + 1] == '*')
-  	if ((tmp->next[i++] = create_maillon(tmp->x + 1, tmp->y, RIGHT, tmp)) == NULL)
-  	  return (1);
-      if (tmp->y + 1 <= (h_tab(m) - 1) && tmp->side != UP && m[tmp->y + 1][tmp->x] == '*')
-  	if ((tmp->next[i++] = create_maillon(tmp->x, tmp->y + 1, DOWN, tmp)) == NULL)
-  	  return (1);
-      if (tmp->x - 1 >= 0 && tmp->side != RIGHT && m[tmp->y][tmp->x - 1] == '*')
-  	if ((tmp->next[i++] = create_maillon(tmp->x - 1, tmp->y, LEFT, tmp)) == NULL)
-  	  return (1);
+      check_direction(tmp, m, i);
       add_tab_posi(posi, tmp);
     }
-  /* if ((finder(posi, m)) != 0) */
   my_putstr("Path not found\n");
   return (0);
 }
-
-/* int	finder(t_maillon **posi, char **m) */
-/* { */
-/*   int	i; */
-/*   t_maillon *tmp; */
-
-/*   while (posi[0] != NULL) */
-/*     { */
-/*       i = 0; */
-/*       tmp = posi[0]; */
-/*       posi = update_tab_posi(posi); */
-/*       if ((tmp->y == h_tab(m) - 1) && (tmp->x == h_tab(m) - 1)) */
-/*         { */
-/*           carve_tab(tmp, m); */
-/*           return (0); */
-/*         } */
-/*       if ((tmp->y - 1 >= 0) && tmp->side != DOWN && m[tmp->y - 1][tmp->x] == '*') */
-/*         if ((tmp->next[i++] = create_maillon(tmp->x, tmp->y - 1, UP, tmp)) == NULL) */
-/*           return (1); */
-/*       if (m_str(m[tmp->y]) >= tmp->x + 1 && tmp->side != 1 && m[tmp->y][tmp->x + 1] == '*') */
-/*         if ((tmp->next[i++] = create_maillon(tmp->x + 1, tmp->y, RIGHT, tmp)) == NULL) */
-/*           return (1); */
-/*       if (tmp->y + 1 <= (h_tab(m) - 1) && tmp->side != UP && m[tmp->y + 1][tmp->x] == '*') */
-/*         if ((tmp->next[i++] = create_maillon(tmp->x, tmp->y + 1, DOWN, tmp)) == NULL) */
-/*           return (1); */
-/*       if (tmp->x - 1 >= 0 && tmp->side != RIGHT && m[tmp->y][tmp->x - 1] == '*') */
-/*         if ((tmp->next[i++] = create_maillon(tmp->x - 1, tmp->y, LEFT, tmp)) == NULL) */
-/*           return (1); */
-/*       add_tab_posi(posi, tmp); */
-/*     } */
-/*   return (1); */
-/* } */
 
 int	h_tab(char **tab)
 {

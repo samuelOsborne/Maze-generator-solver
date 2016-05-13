@@ -5,7 +5,7 @@
 ## Login   <samuel@epitech.net>
 ## 
 ## Started on  Wed Apr 27 14:28:35 2016 Samuel
-## Last update Tue May 10 13:55:39 2016 Arnaud Costa
+## Last update Fri May 13 14:30:18 2016 Samuel
 ##
 
 SRC	=	src/main.c		\
@@ -19,6 +19,7 @@ SRC	=	src/main.c		\
 		src/map_funcs.c		\
 		src/update_tab_posi.c	\
 		src/memset_tab.c	\
+		src/check_direction.c
 
 NAME	=	solver_profonder
 

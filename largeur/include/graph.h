@@ -5,12 +5,13 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Wed Mar 30 16:37:41 2016 Arnaud Costa
-** Last update Tue May  3 14:14:21 2016 Arnaud Costa
+** Last update Fri May 13 14:13:05 2016 Samuel
 */
 
 #ifndef MY_GRAPH_H_
 # define MY_GRAPH_H_
 
+#define TMPR "tmp->y"
 #define LEFT 1
 #define RIGHT 2
 #define UP 4
