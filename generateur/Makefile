@@ -5,7 +5,7 @@
 ## Login   <samuel@epitech.net>
 ## 
 ## Started on  Fri Apr 29 12:49:46 2016 Samuel
-## Last update Thu May 12 17:43:57 2016 Samuel
+## Last update Fri May 13 09:17:50 2016 Samuel
 ##
 
 SRC	=	src/maze.c		\
@@ -24,7 +24,7 @@ OBJ	=	$(SRC:.c=.o)
 
 RM	=	rm -f
 
-NAME	=	maze
+NAME	=	generateur
 
 CFLAGS	=	-Iinclude
 CFLAGS	+=	-W -Wextra -ansi -pedantic
