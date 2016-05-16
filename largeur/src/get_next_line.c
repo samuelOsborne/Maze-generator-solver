@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Sat Jan 16 16:05:18 2016 arnaud costa
-** Last update Mon Mar  7 11:13:43 2016 Arnaud Costa
+** Last update Mon May 16 12:39:58 2016 Arnaud Costa
 */
 
 #include <stdlib.h>
@@ -39,10 +39,10 @@ int	put_at_null(char *buffer, int k)
   return (0);
 }
 
-char    *my_realloc(char *buffer, int size)
+char	*my_realloc(char *buffer, int size)
 {
-  char  *new_buffer;
-  int   i;
+  char	*new_buffer;
+  int	i;
 
   i = 0;
   if ((new_buffer = malloc(size)) == NULL)

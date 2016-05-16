@@ -5,16 +5,16 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Wed Mar 30 18:37:17 2016 Arnaud Costa
-** Last update Wed Apr 27 16:11:53 2016 Samuel
+** Last update Mon May 16 12:40:22 2016 Arnaud Costa
 */
 
 #include <stdlib.h>
 #include "graph.h"
 
-t_maillon       *create_maillon(int x, int y, int side, t_maillon *parent)
+t_maillon	*create_maillon(int x, int y, int side, t_maillon *parent)
 {
-  t_maillon     *elem;
-  int           i;
+  t_maillon	*elem;
+  int		i;
 
   i = 0;
   if ((elem = malloc(sizeof(t_maillon))) == NULL)
