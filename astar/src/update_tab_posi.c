@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Tue May  3 10:49:43 2016 Arnaud Costa
-** Last update Fri May 13 13:44:35 2016 Arnaud Costa
+** Last update Mon May 16 13:29:44 2016 Arnaud Costa
 */
 
 #include <stdlib.h>
@@ -91,18 +91,13 @@ void	add_tmp_to_close(t_maillon *tmp, t_maillon **close)
   close[i] = NULL;
 }
 
-void	add_tab_open(t_maillon **posi, t_maillon *tmp,
-		     t_maillon **close, char **m)
+void	add_tab_open(t_maillon **posi, t_maillon *tmp, int x, int y)
 {
   int	i;
   int	j;
-  int	x;
-  int	y;
 
   i = 0;
   j = 0;
-  x = h_tab(m) - 1;
-  y = my_strlen(m[0]) - 1;
   while (posi && posi[i] != NULL)
     {
       printf("add_tab_posi1\n");
@@ -111,7 +106,7 @@ void	add_tab_open(t_maillon **posi, t_maillon *tmp,
     }
   while (tmp->next[j] != NULL)
     {
-      if (find_node(posi, tmp) == 0 && find_node(close, tmp) == 0)
+      if (find_node(posi, tmp) == 0)
 	{
 	  printf("add_tab_posi2\n");
 	  posi[i] = tmp->next[j];
