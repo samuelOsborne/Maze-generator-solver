@@ -5,7 +5,7 @@
 ** Login   <samuel@epitech.net>
 ** 
 ** Started on  Wed May 11 15:12:00 2016 Samuel
-** Last update Thu May 12 16:45:12 2016 Samuel
+** Last update Tue May 17 10:27:19 2016 Samuel
 */
 
 #include <stdlib.h>
@@ -35,7 +35,7 @@ void		bottom(t_bot *bot, t_maze **maze, int r)
   int		i;
 
   i = 0;
-  while (i <= bot->width * bot->height)
+  while (i <= bot->width + bot->height)
     {
       while (r - 2 > 0 && maze[bot->y][r - 2].state != '*'
 	     && maze[bot->y][r - 1].state != '*')

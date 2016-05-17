@@ -5,7 +5,7 @@
 ** Login   <samuel@epitech.net>
 ** 
 ** Started on  Wed May 11 14:42:47 2016 Samuel
-** Last update Thu May 12 16:56:38 2016 Samuel
+** Last update Tue May 17 10:29:40 2016 Samuel
 */
 
 #include "maze.h"
@@ -46,7 +46,7 @@ void	top_draw(t_maze **maze, int r, t_top *up)
   int	i;
 
   i = 0;
-  while (i <= up->width * up->height)
+  while (i <= up->width + up->height)
     {
       while (up->y + 2 < up->height && r + 2 < up->width
 	     && maze[up->y][r + 2].state != '*' && maze[up->y][r + 1].state != '*')
