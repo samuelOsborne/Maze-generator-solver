@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Mon Apr 25 17:10:45 2016 Arnaud Costa
-** Last update Mon May 16 13:19:28 2016 Arnaud Costa
+** Last update Tue May 17 15:35:53 2016 Arnaud Costa
 */
 
 #include <stdlib.h>
@@ -14,7 +14,6 @@
 
 int		finde_maze(char **m, t_maillon *n, int x, int y)
 {
-  int           i;
   t_maillon	**open;
   t_maillon	**close;
   t_maillon	*tmp;
@@ -29,28 +28,16 @@ int		finde_maze(char **m, t_maillon *n, int x, int y)
   open[1] = NULL;
   while (open[0] != NULL)
     {
-      i = 0;
-      printf("getmaze\n");
       tmp = open[find_smaller(open)];
       add_tmp_to_close(tmp, close);
       update_tab_open(open, find_smaller(open));
+      printf("x = %d && y = %d\n", tmp->x, tmp->y);
       if ((tmp->y == x - 1) && (tmp->x == y - 1))
   	{
   	  carve_tab(tmp, m);
   	  return (0);
   	}
-      if ((tmp->y - 1 >= 0) && tmp->side != DOWN && m[tmp->y - 1][tmp->x] == '*')
-  	if ((tmp->next[i++] = create_maillon(tmp->x, tmp->y - 1, UP, tmp)) == NULL)
-  	  return (1);
-      if (m_str(m[tmp->y]) >= tmp->x + 1 && tmp->side != 1 && m[tmp->y][tmp->x + 1] == '*')
-  	if ((tmp->next[i++] = create_maillon(tmp->x + 1, tmp->y, RIGHT, tmp)) == NULL)
-  	  return (1);
-      if (tmp->y + 1 <= (h_tab(m) - 1) && tmp->side != UP && m[tmp->y + 1][tmp->x] == '*')
-  	if ((tmp->next[i++] = create_maillon(tmp->x, tmp->y + 1, DOWN, tmp)) == NULL)
-  	  return (1);
-      if (tmp->x - 1 >= 0 && tmp->side != RIGHT && m[tmp->y][tmp->x - 1] == '*')
-  	if ((tmp->next[i++] = create_maillon(tmp->x - 1, tmp->y, LEFT, tmp)) == NULL)
-  	  return (1);
+      check_direction(tmp, m, 0);
       add_tab_open(open, tmp, x, y);
     }
   my_putstr("Path not found\n");
