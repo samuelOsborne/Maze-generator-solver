@@ -5,7 +5,7 @@
 ## Login   <samuel@epitech.net>
 ## 
 ## Started on  Wed Apr 27 14:28:35 2016 Samuel
-## Last update Tue May 17 14:52:56 2016 Arnaud Costa
+## Last update Wed May 18 15:51:30 2016 Samuel
 ##
 
 SRC	=	src/main.c		\
@@ -29,7 +29,7 @@ OBJ	=	$(SRC:.c=.o)
 
 RM 	=	rm -f
 
-CFLAGS	=	-W -Wextra -ansi -Iinclude
+CFLAGS	=	-W -Wall -Wextra -ansi -Iinclude
 
 $(NAME)	:	$(OBJ)
 		$(CC) -o $(NAME) $(OBJ)

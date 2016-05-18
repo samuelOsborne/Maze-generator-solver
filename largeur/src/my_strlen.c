@@ -5,8 +5,10 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Tue Apr 26 13:27:24 2016 Arnaud Costa
-** Last update Thu Apr 28 10:42:43 2016 Samuel
+** Last update Wed May 18 15:57:38 2016 Samuel
 */
+
+#include "graph.h"
 
 int	m_str(char *str)
 {

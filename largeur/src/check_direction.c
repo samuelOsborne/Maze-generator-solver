@@ -5,7 +5,7 @@
 ** Login   <samuel@epitech.net>
 ** 
 ** Started on  Fri May 13 14:18:41 2016 Samuel
-** Last update Fri May 13 14:22:48 2016 Samuel
+** Last update Wed May 18 16:13:34 2016 Samuel
 */
 
 #include <stdlib.h>
@@ -33,4 +33,5 @@ int		check_direction(t_maillon *tmp, char **m, int i)
     if ((tmp->next[i++] =
 	 create_maillon(tmp->x - 1, tmp->y, LEFT, tmp)) == NULL)
       return (1);
+  return (0);
 }

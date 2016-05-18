@@ -5,10 +5,11 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Tue Apr 26 12:54:27 2016 Arnaud Costa
-** Last update Fri May 13 13:59:56 2016 Samuel
+** Last update Wed May 18 15:56:03 2016 Samuel
 */
 
 #include <stdlib.h>
+#include "graph.h"
 
 char	*my_strcpy(char *dest, char *src)
 {

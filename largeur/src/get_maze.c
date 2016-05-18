@@ -5,14 +5,14 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Mon Apr 25 17:10:45 2016 Arnaud Costa
-** Last update Fri May 13 14:23:07 2016 Samuel
+** Last update Wed May 18 16:11:37 2016 Samuel
 */
 
 #include <stdlib.h>
 #include "graph.h"
 #include "get_next_line.h"
 
-t_maillon	**init_posi(int size, char **m, t_maillon *n)
+t_maillon	**init_posi(char **m, t_maillon *n)
 {
   t_maillon	**posi;
 
@@ -30,15 +30,15 @@ int		finde_maze(char **m, t_maillon *n)
   int           i;
   t_maillon	**posi;
   t_maillon	*tmp;
-
+  
   i = 0;
-  posi = init_posi(sizeof(t_maillon *), m, n);
+  posi = init_posi(m, n);
   while (posi[0] != NULL)
     {
       i = 0;
       tmp = posi[0];
       posi = update_tab_posi(posi);
-      if ((tmp->y == h_tab(m) - 1) && (tmp->x == h_tab(m) - 1))
+      if ((tmp->y == h_tab(m) - 1) && (tmp->x == my_strlen(m[0]) - 1))
   	{
   	  carve_tab(tmp, m);
   	  return (0);
@@ -87,10 +87,11 @@ void	get_maze(int fd)
   char		*str;
   int		i;
   t_maillon	*maillon;
+
   i = 0;
   if ((tab = malloc(sizeof(char *) * 2)) == NULL)
     return ;
-  while (str = get_next_line(fd))
+  while ((str = get_next_line(fd)))
     {
       if ((tab[i] = malloc(sizeof(char) * (my_strlen(str) + 1))) == NULL)
 	return ;
