@@ -5,7 +5,7 @@
 ## Login   <samuel@epitech.net>
 ## 
 ## Started on  Wed Apr 27 14:28:35 2016 Samuel
-## Last update Wed May 18 15:51:30 2016 Samuel
+## Last update Wed May 18 17:07:41 2016 Arnaud Costa
 ##
 
 SRC	=	src/main.c		\
@@ -21,7 +21,7 @@ SRC	=	src/main.c		\
 		src/memset_tab.c	\
 		src/check_direction.c
 
-NAME	=	solver_largeur
+NAME	=	solver
 
 CC	=	gcc
 
