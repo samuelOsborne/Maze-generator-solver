@@ -5,8 +5,12 @@
 ## Login   <samuel@epitech.net>
 ## 
 ## Started on  Mon Apr 18 11:19:14 2016 Samuel
-## Last update Wed May 18 22:32:40 2016 Arnaud Costa
+## Last update Wed May 18 22:37:37 2016 Arnaud Costa
 ##
+
+CP		=	cp
+
+RM		=	rm -r
 
 all		:
 			make -C largeur
@@ -14,7 +18,7 @@ all		:
 			make -C astar
 			make -C generateur
 			mkdir -p tournoi
-			cp largeur/solver tournoi/solver
+			$(CP) largeur/solver tournoi/solver
 
 clean		:
 			make -C largeur clean
@@ -27,7 +31,7 @@ fclean		:
 			make -C profondeur fclean
 			make -C astar fclean
 			make -C generateur fclean
-			rm -r tournoi
+			$(RM) tournoi
 
 re		:	fclean all
 
