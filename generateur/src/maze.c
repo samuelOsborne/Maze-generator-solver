@@ -5,7 +5,7 @@
 ** Login   <samuel@epitech.net>
 ** 
 ** Started on  Fri Apr 29 12:50:06 2016 Samuel
-** Last update Thu May 12 18:01:57 2016 Samuel
+** Last update Wed May 18 13:25:43 2016 Samuel
 */
 
 #include <sys/types.h>
@@ -39,9 +39,6 @@ void		imparfait(int width, int height)
 
 int		main(int ac, char **av)
 {
-  int		width;
-  int		height;
-
   first_check(ac, av);
   return (0);
 }

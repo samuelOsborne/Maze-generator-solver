@@ -5,9 +5,10 @@
 ** Login   <samuel@epitech.net>
 ** 
 ** Started on  Wed May 11 15:12:00 2016 Samuel
-** Last update Tue May 17 10:27:19 2016 Samuel
+** Last update Wed May 18 13:40:12 2016 Samuel
 */
 
+#include <time.h>
 #include <stdlib.h>
 #include "maze.h"
 

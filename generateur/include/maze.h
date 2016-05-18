@@ -5,7 +5,7 @@
 ** Login   <samuel@epitech.net>
 ** 
 ** Started on  Fri Apr 29 13:41:18 2016 Samuel
-** Last update Wed May 11 16:05:04 2016 Samuel
+** Last update Wed May 18 13:38:26 2016 Samuel
 */
 
 #ifndef MAZE_H
@@ -62,6 +62,21 @@ typedef struct	s_split
   int		count;
 }		t_split;
 
-t_maze		**create_maze(int width, int height);
+t_maze		**create_maze(int, int);
+void		init_maze(t_maze **, int, int);
+void		carve_maze(t_maze **, int, int);
+void		start_route(t_maze **, int, int);
+void		print_maze(t_maze **, int, int);
+void		zig_lines(t_maze **, int, int);
+void		free_maze(t_maze **, int);
+void		end_line(t_maze **, int ,int, int);
+void		bottom(t_bot *, t_maze **, int );
+void		imparfait(int, int);
+void		parfait(int, int);
+int		first_check(int, char **);
+int		my_strcmp(char *, char *);
+int		my_getnbr(char *);
+int		top(t_maze **, int, int, int);
+int		check_for_prob(t_maze **, int, int, int);
 
 #endif /* !MAZE_H */

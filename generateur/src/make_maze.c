@@ -5,9 +5,10 @@
 ** Login   <samuel@epitech.net>
 **
 ** Started on  Fri Apr 29 14:31:42 2016 Samuel
-** Last update Thu May 12 17:01:43 2016 Samuel
+** Last update Wed May 18 13:26:10 2016 Samuel
 */
 
+#include <unistd.h>
 #include <stdlib.h>
 #include "maze.h"
 

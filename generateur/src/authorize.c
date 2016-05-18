@@ -5,9 +5,10 @@
 ** Login   <samuel@epitech.net>
 ** 
 ** Started on  Thu May 12 17:34:05 2016 Samuel
-** Last update Thu May 12 18:00:54 2016 Samuel
+** Last update Wed May 18 13:39:36 2016 Samuel
 */
 
+#include <unistd.h>
 #include "maze.h"
 
 int		imp_true(char *width, char *height)
@@ -26,6 +27,7 @@ int		imp_true(char *width, char *height)
       return (1);
     }
   imparfait(width1, height2);
+  return (0);
 }
 
 int		imp_parfait(char *width, char *height)
@@ -44,6 +46,7 @@ int		imp_parfait(char *width, char *height)
       return (1);
     }
   parfait(width1, height2);
+  return (0);
 }
 
 int		first_check(int ac, char **av)

@@ -5,7 +5,7 @@
 ** Login   <samuel@epitech.net>
 ** 
 ** Started on  Wed May 11 14:42:47 2016 Samuel
-** Last update Tue May 17 10:29:40 2016 Samuel
+** Last update Wed May 18 13:29:54 2016 Samuel
 */
 
 #include "maze.h"
@@ -73,13 +73,12 @@ void	top_draw(t_maze **maze, int r, t_top *up)
 int	top(t_maze **maze, int r, int width, int height)
 {
   t_top	up;
-  int	i;
 
-  i = 0;
   init_top(&up, width, height);
   if (maze[up.y][r].state != '*')
     if ((liner(maze, &up, r)) == 1)
       return (0);
   rep(&up, up.y);
   top_draw(maze, r, &up);
+  return (0);
 }

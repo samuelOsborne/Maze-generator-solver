@@ -5,9 +5,10 @@
 ** Login   <samuel@epitech.net>
 ** 
 ** Started on  Tue May  3 09:21:50 2016 Samuel
-** Last update Thu May 12 16:54:50 2016 Samuel
+** Last update Wed May 18 13:30:42 2016 Samuel
 */
 
+#include <time.h>
 #include <stdlib.h>
 #include "maze.h"
 
@@ -15,6 +16,7 @@ int		wall_line(t_maze **maze, int y, int x, int height)
 {
   while (y < height)
     maze[y++][x].state = '*';
+  return (0);
 }
 
 void		init_str(t_start *start, int width, int height, int y)
@@ -56,7 +58,7 @@ void		fill_boty(t_bot *bot, int y, int width, int height)
   bot->tmp = y;
 }
 
-int		zig_lines(t_maze **maze, int width, int height)
+void		zig_lines(t_maze **maze, int width, int height)
 {
   int		r;
   int		y;
@@ -74,10 +76,10 @@ int		zig_lines(t_maze **maze, int width, int height)
 		 && maze[y][r + 1].state != '*' && maze[y][r - 1].state != '*')
 	    maze[y--][r].state = '*';
 	  if ((check_for_prob(maze, r, height, y)) == 1)
-	    return (0);
+	    return ;
 	}
       else
-	return (0);
+	return ;
       fill_boty(&boty, y, width, height);
       bottom(&boty, maze, r);
     }
