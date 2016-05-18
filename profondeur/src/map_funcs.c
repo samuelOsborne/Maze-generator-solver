@@ -5,7 +5,7 @@
 ** Login   <samuel@epitech.net>
 **
 ** Started on  Thu Apr 28 10:44:24 2016 Samuel
-** Last update Tue May  3 16:33:08 2016 Arnaud Costa
+** Last update Wed May 18 16:26:57 2016 Samuel
 */
 
 #include <stdlib.h>
@@ -23,9 +23,6 @@ int	length_map(char **map)
 
 int	carve_tab(t_maillon *node, char **map)
 {
-  int	i;
-
-  i = 0;
   while (node->parent != NULL)
     {
       map[node->y][node->x] = 'o';
