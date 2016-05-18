@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Tue May  3 10:49:43 2016 Arnaud Costa
-** Last update Wed May 18 15:11:41 2016 Arnaud Costa
+** Last update Wed May 18 22:29:48 2016 Arnaud Costa
 */
 
 #include <stdlib.h>
@@ -36,7 +36,6 @@ t_maillon	**update_tab_open(t_maillon **posi, int i)
 {
   while (posi[i] != NULL)
     {
-      /* printf("update_tab_open\n"); */
       posi[i] = posi[i + 1];
       i++;
     }
@@ -92,7 +91,6 @@ void	add_tab_open(t_maillon **posi, t_maillon *tmp, int x, int y)
   j = 0;
   while (posi && posi[i] != NULL)
     {
-      /* printf("add_tab_posi1\n"); */
       posi[i]->f = calcul(posi[i], x, y);
       i++;
     }
@@ -100,7 +98,6 @@ void	add_tab_open(t_maillon **posi, t_maillon *tmp, int x, int y)
     {
       if (find_node(posi, tmp) == 0)
 	{
-	  /* printf("add_tab_posi2\n"); */
 	  posi[i] = tmp->next[j];
 	  posi[i]->f = calcul(tmp->next[j], x, y);
 	  i++;
@@ -117,7 +114,6 @@ int	find_node(t_maillon **tab, t_maillon *nodes)
   i = 0;
   while (tab && tab[i] != NULL)
     {
-      /* printf("find_node\n"); */
       if (tab[i]->x == nodes->x && tab[i]->y == nodes->y)
 	return (1);
       i++;
