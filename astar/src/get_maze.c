@@ -5,12 +5,25 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Mon Apr 25 17:10:45 2016 Arnaud Costa
-** Last update Tue May 17 15:35:53 2016 Arnaud Costa
+** Last update Wed May 18 15:10:00 2016 Arnaud Costa
 */
 
 #include <stdlib.h>
-#include "graph.h"
 #include "get_next_line.h"
+#include "graph.h"
+
+t_maillon	**init_posi(char **m, t_maillon *n)
+{
+  t_maillon	**posi;
+
+  if ((posi = malloc(sizeof(t_maillon *) * (h_tab(m) + 2)
+                     * (my_strlen(m[0]) + 2))) == NULL)
+    return (NULL);
+  memset_tab(posi, (h_tab(m) + 2) * (my_strlen(m[0]) + 2));
+  posi[0] = n;
+  posi[1] = NULL;
+  return (posi);
+}
 
 int		finde_maze(char **m, t_maillon *n, int x, int y)
 {
@@ -18,20 +31,16 @@ int		finde_maze(char **m, t_maillon *n, int x, int y)
   t_maillon	**close;
   t_maillon	*tmp;
 
-  if ((open = malloc(sizeof(t_maillon *) * (x + 1) * (y + 1))) == NULL)
+  open = init_posi(m, n);
+  if ((close = malloc(sizeof(t_maillon *) * (x + 2) * (y + 2))) == NULL)
     return (-1);
-  memset_tab(open, (x + 1) * (y + 1));
-  if ((close = malloc(sizeof(t_maillon *) * (x + 1) * (y + 1))) == NULL)
-    return (-1);
-  memset_tab(close, (x + 1) * (y + 1));
-  open[0] = n;
-  open[1] = NULL;
+  memset_tab(close, (x + 2) * (y + 2));
   while (open[0] != NULL)
     {
       tmp = open[find_smaller(open)];
       add_tmp_to_close(tmp, close);
       update_tab_open(open, find_smaller(open));
-      printf("x = %d && y = %d\n", tmp->x, tmp->y);
+      /* printf("x = %d && y = %d\n", tmp->x, tmp->y); */
       if ((tmp->y == x - 1) && (tmp->x == y - 1))
   	{
   	  carve_tab(tmp, m);
@@ -85,7 +94,7 @@ void	get_maze(int fd)
   i = 0;
   if ((tab = malloc(sizeof(char *) * 2)) == NULL)
     return ;
-  while (str = get_next_line(fd))
+  while ((str = get_next_line(fd)))
     {
       if ((tab[i] = malloc(sizeof(char) * (my_strlen(str) + 1))) == NULL)
 	return ;

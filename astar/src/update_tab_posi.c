@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Tue May  3 10:49:43 2016 Arnaud Costa
-** Last update Tue May 17 15:37:22 2016 Arnaud Costa
+** Last update Wed May 18 15:11:41 2016 Arnaud Costa
 */
 
 #include <stdlib.h>
@@ -22,7 +22,7 @@ int	find_smaller(t_maillon **posi)
   smaller = posi[0];
   while (posi[i] != NULL)
     {
-      /* printf("find_smaller\n"); */
+      /* printf("%d\n", i); */
       /* printf("f = %d\n", posi[i]->f); */
       /* printf("x = %d && y = %d\n", posi[i]->x, posi[i]->y); */
       if (posi[i]->f < smaller->f)
@@ -40,6 +40,7 @@ t_maillon	**update_tab_open(t_maillon **posi, int i)
       posi[i] = posi[i + 1];
       i++;
     }
+  posi[i] = NULL;
   return (posi);
 }
 
@@ -77,9 +78,8 @@ void	add_tmp_to_close(t_maillon *tmp, t_maillon **close)
   int	i;
 
   i = 0;
-  while (close[i] != NULL)
+  while (close && close[i] != NULL)
     i++;
-  close[i] = tmp;
   close[i] = NULL;
 }
 
