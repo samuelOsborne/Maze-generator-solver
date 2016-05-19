@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Sun Jan 17 18:33:50 2016 Arnaud Costa
-** Last update Wed May 18 16:16:33 2016 Samuel
+** Last update Thu May 19 11:28:29 2016 Samuel
 */
 
 #include <fcntl.h>
@@ -19,7 +19,18 @@ int	main(int ac, char **av)
   int	fd;
 
   (void)ac;
-  fd = open(av[1], O_RDONLY);
+  if (ac == 1)
+    {
+      if ((write(2, "Please pass a maze file as an argument.\n", 40)) == -1)
+	return (1);
+      return (1);
+    }
+  if ((fd = open(av[1], O_RDONLY)) == -1)
+    {
+      if ((write(2, "File unavailable.\n", 18)) == -1)
+	return (1);
+      return (1);
+    }
   get_maze(fd);
   close(fd);
   return (0);
