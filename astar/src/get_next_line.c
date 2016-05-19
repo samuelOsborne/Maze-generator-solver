@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Sat Jan 16 16:05:18 2016 arnaud costa
-** Last update Mon Mar  7 11:13:43 2016 Arnaud Costa
+** Last update Thu May 19 11:27:21 2016 Arnaud Costa
 */
 
 #include <stdlib.h>
@@ -39,7 +39,7 @@ int	put_at_null(char *buffer, int k)
   return (0);
 }
 
-char    *my_realloc(char *buffer, int size)
+char	*my_realloc(char *buffer, int size)
 {
   char  *new_buffer;
   int   i;
