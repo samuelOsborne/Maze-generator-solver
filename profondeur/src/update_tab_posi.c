@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Tue May  3 10:49:43 2016 Arnaud Costa
-** Last update Fri May 13 14:35:44 2016 Samuel
+** Last update Fri May 20 13:34:51 2016 Arnaud Costa
 */
 
 #include <stdlib.h>
@@ -34,9 +34,9 @@ t_maillon	**add_tab_posi(t_maillon **posi, t_maillon *tmp, char **m)
   i = 0;
   j = 0;
   if ((tab_dest = malloc(sizeof(t_maillon *) *
-			 (h_tab(m) + 1) * (my_strlen(m[0]) + 1))) == NULL)
+			 (h_tab(m) + 1) * (m_str(m[0]) + 1))) == NULL)
     return (NULL);
-  memset_tab(tab_dest, (h_tab(m) + 1) * (my_strlen(m[0]) + 1));
+  memset_tab(tab_dest, (h_tab(m) + 1) * (m_str(m[0]) + 1));
   while (tmp->next[i] != NULL)
     {
       if ((tab_dest[i] = malloc(sizeof(t_maillon))) == NULL)

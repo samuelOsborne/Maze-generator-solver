@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Tue May  3 10:49:43 2016 Arnaud Costa
-** Last update Wed May 18 22:29:48 2016 Arnaud Costa
+** Last update Fri May 20 13:17:39 2016 Arnaud Costa
 */
 
 #include <stdlib.h>
@@ -22,9 +22,6 @@ int	find_smaller(t_maillon **posi)
   smaller = posi[0];
   while (posi[i] != NULL)
     {
-      /* printf("%d\n", i); */
-      /* printf("f = %d\n", posi[i]->f); */
-      /* printf("x = %d && y = %d\n", posi[i]->x, posi[i]->y); */
       if (posi[i]->f < smaller->f)
 	i = j;
       i++;
@@ -77,6 +74,7 @@ void	add_tmp_to_close(t_maillon *tmp, t_maillon **close)
   int	i;
 
   i = 0;
+  (void)tmp;
   while (close && close[i] != NULL)
     i++;
   close[i] = NULL;
@@ -105,18 +103,4 @@ void	add_tab_open(t_maillon **posi, t_maillon *tmp, int x, int y)
       j++;
     }
   posi[i] = NULL;
-}
-
-int	find_node(t_maillon **tab, t_maillon *nodes)
-{
-  int	i;
-
-  i = 0;
-  while (tab && tab[i] != NULL)
-    {
-      if (tab[i]->x == nodes->x && tab[i]->y == nodes->y)
-	return (1);
-      i++;
-    }
-  return (0);
 }

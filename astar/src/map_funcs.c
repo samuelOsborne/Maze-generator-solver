@@ -5,7 +5,7 @@
 ** Login   <samuel@epitech.net>
 **
 ** Started on  Thu Apr 28 10:44:24 2016 Samuel
-** Last update Wed May 18 15:12:10 2016 Arnaud Costa
+** Last update Fri May 20 13:11:36 2016 Arnaud Costa
 */
 
 #include <stdlib.h>
@@ -30,5 +30,19 @@ int	carve_tab(t_maillon *node, char **map)
     }
   map[0][0] = 'o';
   map[h_tab(map) - 1][length_map(map) - 1] = 'o';
+  return (0);
+}
+
+int	find_node(t_maillon **tab, t_maillon *nodes)
+{
+  int	i;
+
+  i = 0;
+  while (tab && tab[i] != NULL)
+    {
+      if (tab[i]->x == nodes->x && tab[i]->y == nodes->y)
+        return (1);
+      i++;
+    }
   return (0);
 }

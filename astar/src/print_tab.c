@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Tue Apr 26 13:46:00 2016 Arnaud Costa
-** Last update Wed May 18 12:41:29 2016 Arnaud Costa
+** Last update Fri May 20 13:16:38 2016 Arnaud Costa
 */
 
 #include <stdlib.h>
@@ -33,7 +33,7 @@ void	print_tab(char **tab)
   i = 0;
   while (tab[i] != NULL)
     {
-      write(1, tab[i], my_strlen(tab[i]));
+      write(1, tab[i], m_str(tab[i]));
       write(1, "\n", 1);
       i++;
     }
