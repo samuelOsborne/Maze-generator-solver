@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Mon Apr 25 17:10:45 2016 Arnaud Costa
-** Last update Fri May 20 13:16:17 2016 Arnaud Costa
+** Last update Sun May 22 12:39:11 2016 Arnaud Costa
 */
 
 #include <stdlib.h>
@@ -48,7 +48,7 @@ int		finde_maze(char **m, t_maillon *n, int x, int y)
       check_direction(tmp, m, 0);
       add_tab_open(open, tmp, x, y);
     }
-  my_putstr("Path not found\n");
+  my_putstr("No solution found\n");
   return (0);
 }
 

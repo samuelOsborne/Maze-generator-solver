@@ -5,12 +5,10 @@
 ## Login   <samuel@epitech.net>
 ## 
 ## Started on  Mon Apr 18 11:19:14 2016 Samuel
-## Last update Sun May 22 08:34:58 2016 Samuel
+## Last update Sun May 22 12:31:28 2016 Arnaud Costa
 ##
 
 CP		=	cp
-
-RM		=	rm -r
 
 all		:
 			make -C largeur

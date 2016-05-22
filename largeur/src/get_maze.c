@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Mon Apr 25 17:10:45 2016 Arnaud Costa
-** Last update Fri May 20 13:28:45 2016 Arnaud Costa
+** Last update Sun May 22 12:46:24 2016 Arnaud Costa
 */
 
 #include <stdlib.h>
@@ -46,8 +46,8 @@ int		finde_maze(char **m, t_maillon *n)
       check_direction(tmp, m, i);
       add_tab_posi(posi, tmp);
     }
-  my_putstr("Path not found\n");
-  return (0);
+  my_putstr("No solution found\n");
+  return (1);
 }
 
 int	h_tab(char **tab)
@@ -102,7 +102,7 @@ void	get_maze(int fd)
       free(str);
     }
   maillon = create_maillon(0, 0, DOWN, (t_maillon*)NULL);
-  finde_maze(tab, maillon);
-  print_tab(tab);
+  if ((finde_maze(tab, maillon)) == 0)
+    print_tab(tab);
   free_tab(tab);
 }

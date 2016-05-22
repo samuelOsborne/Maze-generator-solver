@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Mon Apr 25 17:10:45 2016 Arnaud Costa
-** Last update Fri May 20 11:44:36 2016 Arnaud Costa
+** Last update Sun May 22 12:36:30 2016 Arnaud Costa
 */
 
 #include <stdlib.h>
@@ -77,10 +77,8 @@ void	error_manager(int maze, char **tab)
 {
   if (maze == 0)
     print_tab(tab);
-  else if (maze == 2)
-    my_putstr("Error imperfect map\n");
   else
-    my_putstr("Path not found\n");
+    my_putstr("No solution found\n");
 }
 
 void	get_maze(int fd)
