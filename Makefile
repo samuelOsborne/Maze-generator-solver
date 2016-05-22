@@ -5,7 +5,7 @@
 ## Login   <samuel@epitech.net>
 ## 
 ## Started on  Mon Apr 18 11:19:14 2016 Samuel
-## Last update Wed May 18 22:37:37 2016 Arnaud Costa
+## Last update Sun May 22 08:34:58 2016 Samuel
 ##
 
 CP		=	cp
@@ -31,7 +31,6 @@ fclean		:
 			make -C profondeur fclean
 			make -C astar fclean
 			make -C generateur fclean
-			$(RM) tournoi
 
 re		:	fclean all
 
