@@ -5,7 +5,7 @@
 ** Login   <samuel@epitech.net>
 ** 
 ** Started on  Fri Apr 29 15:02:05 2016 Samuel
-** Last update Thu May 12 16:33:15 2016 Samuel
+** Last update Fri May 27 14:22:31 2016 Samuel
 */
 
 #include <stdlib.h>
@@ -73,12 +73,12 @@ void		carve_maze(t_maze **maze, int width, int height)
     {
       r = rand() % 2;
       if (x == width - 2)
-	while (y < height - 1)
-	  maze[y++][x].state = '*';
+  	while (y < height - 1)
+  	  maze[y++][x].state = '*';
       if (r == 0 && ((x) < width) && maze[y][x + 1].state != '*')
-	maze[y][x++].state = '*';
+  	maze[y][x++].state = '*';
       if (r == 1 && ((y + 1) < height) && maze[y + 1][x].state != '*')
-	maze[y++][x].state = '*';
+  	maze[y++][x].state = '*';
     }
   end_line(maze, width, height, x);
   split_maze(maze, width, height);
