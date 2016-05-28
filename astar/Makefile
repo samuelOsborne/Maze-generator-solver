@@ -5,7 +5,7 @@
 ## Login   <samuel@epitech.net>
 ## 
 ## Started on  Wed Apr 27 14:28:35 2016 Samuel
-## Last update Wed May 18 17:07:25 2016 Arnaud Costa
+## Last update Sat May 28 13:31:48 2016 Arnaud Costa
 ##
 
 SRC	=	src/main.c		\
@@ -19,7 +19,8 @@ SRC	=	src/main.c		\
 		src/map_funcs.c		\
 		src/update_tab_posi.c	\
 		src/memset_tab.c	\
-		src/check_direction.c
+		src/check_direction.c	\
+		src/ini_close.c
 
 NAME	=	solver
 

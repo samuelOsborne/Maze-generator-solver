@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Tue May  3 10:49:43 2016 Arnaud Costa
-** Last update Fri May 20 13:17:39 2016 Arnaud Costa
+** Last update Sat May 28 13:47:54 2016 Arnaud Costa
 */
 
 #include <stdlib.h>
@@ -29,12 +29,16 @@ int	find_smaller(t_maillon **posi)
   return (j);
 }
 
-t_maillon	**update_tab_open(t_maillon **posi, int i)
+t_maillon	**update_tab_open(t_maillon **posi, int i, int max)
 {
-  while (posi[i] != NULL)
+  int	nb;
+
+  nb = 0;
+  while (posi[i] != NULL && nb < max)
     {
       posi[i] = posi[i + 1];
       i++;
+      nb++;
     }
   posi[i] = NULL;
   return (posi);

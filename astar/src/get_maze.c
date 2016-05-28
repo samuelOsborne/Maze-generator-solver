@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Mon Apr 25 17:10:45 2016 Arnaud Costa
-** Last update Sun May 22 12:39:11 2016 Arnaud Costa
+** Last update Sat May 28 13:49:13 2016 Arnaud Costa
 */
 
 #include <stdlib.h>
@@ -32,14 +32,12 @@ int		finde_maze(char **m, t_maillon *n, int x, int y)
   t_maillon	*tmp;
 
   open = init_posi(m, n);
-  if ((close = malloc(sizeof(t_maillon *) * (x + 2) * (y + 2))) == NULL)
-    return (-1);
-  memset_tab(close, (x + 2) * (y + 2));
+  close = init_close(m);
   while (open[0] != NULL)
     {
       tmp = open[find_smaller(open)];
       add_tmp_to_close(tmp, close);
-      update_tab_open(open, find_smaller(open));
+      update_tab_open(open, find_smaller(open), x * y);
       if ((tmp->y == x - 1) && (tmp->x == y - 1))
   	{
   	  carve_tab(tmp, m);
