@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Mon Apr 25 17:10:45 2016 Arnaud Costa
-** Last update Sun May 22 12:36:30 2016 Arnaud Costa
+** Last update Sat May 28 09:09:50 2016 Samuel
 */
 
 #include <stdlib.h>
@@ -30,7 +30,6 @@ int		finde_maze(char **m, t_maillon *n)
   int           i;
   t_maillon	**posi;
   t_maillon	*tmp;
-
 
   i = 0;
   posi = init_posi(m, n);
