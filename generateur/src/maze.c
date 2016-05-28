@@ -5,7 +5,7 @@
 ** Login   <samuel@epitech.net>
 ** 
 ** Started on  Fri Apr 29 12:50:06 2016 Samuel
-** Last update Fri May 27 14:23:34 2016 Samuel
+** Last update Sat May 28 09:03:43 2016 Samuel
 */
 
 #include <sys/types.h>
@@ -25,16 +25,19 @@ int		my_strcmp(char *st1, char *st2)
   return (st1[i] - st2[i]);
 }
 
-void		imparfait(int width, int height)
+int		imparfait(int width, int height)
 {
   t_maze	**maze;
 
+  if (width >= 100 || height >= 100)
+    return (1);
   srand(time(NULL));
   maze = create_maze(width, height);
   init_maze(maze, width, height);
   carve_maze(maze, width, height);
   print_maze(maze, width, height);
   free_maze(maze, height);
+  return (0);
 }
 
 int		main(int ac, char **av)
