@@ -5,7 +5,7 @@
 ## Login   <samuel@epitech.net>
 ## 
 ## Started on  Wed Apr 27 14:28:35 2016 Samuel
-## Last update Sat May 28 13:31:48 2016 Arnaud Costa
+## Last update Sat May 28 20:49:28 2016 Arnaud Costa
 ##
 
 SRC	=	src/main.c		\

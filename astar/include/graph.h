@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Wed Mar 30 16:37:41 2016 Arnaud Costa
-** Last update Sat May 28 13:39:55 2016 Arnaud Costa
+** Last update Sat May 28 19:36:08 2016 Arnaud Costa
 */
 
 #ifndef MY_GRAPH_H_
@@ -40,9 +40,9 @@ int		h_tab(char **tab);
 char		**my_realloc_tab(char **tab);
 void		get_maze(int fd);
 char		**tab_cpy(char **tab_src);
-int		find_smaller(t_maillon **posi);
+int		find_smaller(t_maillon **posi, int max);
 int		calcul(t_maillon *posi, int x, int y);
-void		add_tmp_to_close(t_maillon *tmp, t_maillon **close);
+void		add_tmp_to_close(t_maillon *tmp, t_maillon **close, int max);
 void		add_tab_open(t_maillon **posi, t_maillon *tmp, int x, int y);
 void		get_maze(int fd);
 int		carve_tab(t_maillon *node, char **map);

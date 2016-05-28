@@ -5,7 +5,7 @@
 ** Login   <samuel@epitech.net>
 **
 ** Started on  Thu Apr 28 10:44:24 2016 Samuel
-** Last update Fri May 20 13:11:36 2016 Arnaud Costa
+** Last update Sat May 28 20:46:34 2016 Arnaud Costa
 */
 
 #include <stdlib.h>
@@ -45,4 +45,14 @@ int	find_node(t_maillon **tab, t_maillon *nodes)
       i++;
     }
   return (0);
+}
+
+int	h_tab(char **tab)
+{
+  int	i;
+
+  i = 0;
+  while (tab && tab[i] != NULL)
+    i++;
+  return (i);
 }

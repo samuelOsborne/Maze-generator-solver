@@ -5,13 +5,13 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Tue May  3 10:49:43 2016 Arnaud Costa
-** Last update Sat May 28 13:47:54 2016 Arnaud Costa
+** Last update Sat May 28 19:42:01 2016 Arnaud Costa
 */
 
 #include <stdlib.h>
 #include "graph.h"
 
-int	find_smaller(t_maillon **posi)
+int	find_smaller(t_maillon **posi, int max)
 {
   int		i;
   int		j;
@@ -20,10 +20,10 @@ int	find_smaller(t_maillon **posi)
   i = 0;
   j = 0;
   smaller = posi[0];
-  while (posi[i] != NULL)
+  while (posi[i] != NULL && i < max)
     {
       if (posi[i]->f < smaller->f)
-	i = j;
+	j = i;
       i++;
     }
   return (j);
@@ -73,13 +73,13 @@ int	calcul(t_maillon *posi, int x, int y)
   return (f);
 }
 
-void	add_tmp_to_close(t_maillon *tmp, t_maillon **close)
+void	add_tmp_to_close(t_maillon *tmp, t_maillon **close, int max)
 {
   int	i;
 
   i = 0;
   (void)tmp;
-  while (close && close[i] != NULL)
+  while (close && close[i] != NULL && i < max)
     i++;
   close[i] = NULL;
 }

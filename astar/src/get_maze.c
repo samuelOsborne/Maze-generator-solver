@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Mon Apr 25 17:10:45 2016 Arnaud Costa
-** Last update Sat May 28 13:49:13 2016 Arnaud Costa
+** Last update Sat May 28 20:46:43 2016 Arnaud Costa
 */
 
 #include <stdlib.h>
@@ -33,11 +33,13 @@ int		finde_maze(char **m, t_maillon *n, int x, int y)
 
   open = init_posi(m, n);
   close = init_close(m);
+  if (x > 100 && y > 100)
+    return (1);
   while (open[0] != NULL)
     {
-      tmp = open[find_smaller(open)];
-      add_tmp_to_close(tmp, close);
-      update_tab_open(open, find_smaller(open), x * y);
+      tmp = open[find_smaller(open, x * y)];
+      add_tmp_to_close(tmp, close, x * y);
+      update_tab_open(open, find_smaller(open, x * y), x * y);
       if ((tmp->y == x - 1) && (tmp->x == y - 1))
   	{
   	  carve_tab(tmp, m);
@@ -46,18 +48,7 @@ int		finde_maze(char **m, t_maillon *n, int x, int y)
       check_direction(tmp, m, 0);
       add_tab_open(open, tmp, x, y);
     }
-  my_putstr("No solution found\n");
-  return (0);
-}
-
-int	h_tab(char **tab)
-{
-  int   i;
-
-  i = 0;
-  while (tab && tab[i] != NULL)
-    i++;
-  return (i);
+  return (1);
 }
 
 char	**my_realloc_tab(char **tab)
@@ -79,6 +70,14 @@ char	**my_realloc_tab(char **tab)
   new_tab[i] = NULL;
   free_tab(tab);
   return (new_tab);
+}
+
+void	error_manager(int maze, char **tab)
+{
+  if (maze == 0)
+    print_tab(tab);
+  else
+    my_putstr("No solution found\n");
 }
 
 void	get_maze(int fd)
@@ -103,8 +102,7 @@ void	get_maze(int fd)
     }
   if ((maillon = create_maillon(0, 0, DOWN, (t_maillon*)NULL)) == NULL)
     return ;
-  finde_maze(tab, maillon, h_tab(tab), m_str(tab[0]));
+  error_manager(finde_maze(tab, maillon, h_tab(tab), m_str(tab[0])), tab);
   free(maillon);
-  print_tab(tab);
   free_tab(tab);
 }
