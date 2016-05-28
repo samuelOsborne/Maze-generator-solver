@@ -5,7 +5,7 @@
 ** Login   <samuel@epitech.net>
 ** 
 ** Started on  Wed May 11 15:12:00 2016 Samuel
-** Last update Fri May 27 14:26:06 2016 Samuel
+** Last update Sat May 28 09:06:42 2016 Samuel
 */
 
 #include <time.h>
@@ -15,18 +15,11 @@
 void		parfait(int width, int height)
 {
   t_maze	**maze;
-  /* int		i; */
 
-  /* i = 0; */
   srand(time(NULL));
   maze = create_maze(width, height);
   init_maze(maze, width, height);
   start_route(maze, width, height);
-  /* while (i < width * height) */
-  /*   { */
-  /*     zig_lines(maze, width, height); */
-  /*     i++; */
-  /*   } */
   print_maze(maze, width, height);
   free_maze(maze, height);
 }
