@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Wed Mar 30 16:37:41 2016 Arnaud Costa
-** Last update Wed May 18 16:13:11 2016 Samuel
+** Last update Sun May 29 13:45:46 2016 Arnaud Costa
 */
 
 #ifndef MY_GRAPH_H_
@@ -28,9 +28,9 @@ typedef struct		s_maillon
 }			t_maillon;
 
 t_maillon	*create_maillon(int x, int y, int side, t_maillon *parent);
-t_maillon	**update_tab_posi(t_maillon **pos);
-void		add_tab_posi(t_maillon **posi, t_maillon *tmp);
-int		find_node(t_maillon **tab, t_maillon *nodes2);
+t_maillon	**update_tab_posi(t_maillon **pos, int max);
+int		add_tab_posi(t_maillon **posi, t_maillon *tmp, int max);
+int		find_node(t_maillon **tab, t_maillon *nodes2, int max);
 void		print_maillon(t_maillon *maillon);
 void		get_maze(int fd);
 void		link_maillon(t_maillon *maillon1, t_maillon *maillon2);

@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Mon Apr 25 17:10:45 2016 Arnaud Costa
-** Last update Sat May 28 20:52:22 2016 Arnaud Costa
+** Last update Sun May 29 13:45:06 2016 Arnaud Costa
 */
 
 #include <stdlib.h>
@@ -31,7 +31,6 @@ int		finde_maze(char **m, t_maillon *n)
   t_maillon	**posi;
   t_maillon	*tmp;
 
-  i = 0;
   posi = init_posi(m, n);
   if (m_str(m[0]) > 100 && h_tab(m) > 100)
     return (1);
@@ -39,14 +38,16 @@ int		finde_maze(char **m, t_maillon *n)
     {
       i = 0;
       tmp = posi[0];
-      posi = update_tab_posi(posi);
+      posi = update_tab_posi(posi, m_str(m[0]));
       if ((tmp->y == h_tab(m) - 1) && (tmp->x == m_str(m[0]) - 1))
   	{
   	  carve_tab(tmp, m);
   	  return (0);
   	}
       check_direction(tmp, m, i);
-      add_tab_posi(posi, tmp);
+      if (add_tab_posi(posi, tmp, m_str(m[0])) == 1)
+	return (1);
+      i++;
     }
   return (1);
 }

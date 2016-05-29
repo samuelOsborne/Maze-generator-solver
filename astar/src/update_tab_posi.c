@@ -5,7 +5,7 @@
 ** Login   <costa_d@epitech.net>
 **
 ** Started on  Tue May  3 10:49:43 2016 Arnaud Costa
-** Last update Sat May 28 19:42:01 2016 Arnaud Costa
+** Last update Sun May 29 13:25:42 2016 Arnaud Costa
 */
 
 #include <stdlib.h>
@@ -20,8 +20,10 @@ int	find_smaller(t_maillon **posi, int max)
   i = 0;
   j = 0;
   smaller = posi[0];
-  while (posi[i] != NULL && i < max)
+  while (posi[i] != NULL)
     {
+      if (i > max)
+      	return (-1);
       if (posi[i]->f < smaller->f)
 	j = i;
       i++;
@@ -29,16 +31,12 @@ int	find_smaller(t_maillon **posi, int max)
   return (j);
 }
 
-t_maillon	**update_tab_open(t_maillon **posi, int i, int max)
+t_maillon	**update_tab_open(t_maillon **posi, int i)
 {
-  int	nb;
-
-  nb = 0;
-  while (posi[i] != NULL && nb < max)
+  while (posi[i] != NULL)
     {
       posi[i] = posi[i + 1];
       i++;
-      nb++;
     }
   posi[i] = NULL;
   return (posi);
