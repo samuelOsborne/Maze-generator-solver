@@ -5,7 +5,7 @@
 ** Login   <samuel@epitech.net>
 ** 
 ** Started on  Thu May 12 17:34:05 2016 Samuel
-** Last update Wed May 18 13:39:36 2016 Samuel
+** Last update Sun May 29 15:23:14 2016 Samuel
 */
 
 #include <unistd.h>
@@ -15,7 +15,12 @@ int		imp_true(char *width, char *height)
 {
   int		width1;
   int		height2;
-
+  
+  if (my_getnbr(width) == -666 || my_getnbr(height) == -666)
+    {
+      write(2, "Please enter only numbers.\n", 27);
+      return (1);
+    }
   if ((width1 = my_getnbr(width)) <= 0)
     {
       write(2, "Please enter a number larger than 0.\n", 38);
@@ -35,6 +40,11 @@ int		imp_parfait(char *width, char *height)
   int		width1;
   int		height2;
 
+  if (my_getnbr(width) == -666 || my_getnbr(height) == -666)
+    {
+      write(2, "Please enter only numbers.\n", 27);
+      return (1);
+    }
   if ((width1 = my_getnbr(width)) <= 0)
     {
       write(2, "Please enter a number larger than 0.\n", 38);

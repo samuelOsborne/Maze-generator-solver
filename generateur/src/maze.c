@@ -5,9 +5,10 @@
 ** Login   <samuel@epitech.net>
 ** 
 ** Started on  Fri Apr 29 12:50:06 2016 Samuel
-** Last update Sat May 28 09:03:43 2016 Samuel
+** Last update Sun May 29 15:17:44 2016 Samuel
 */
 
+#include <unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
@@ -30,7 +31,10 @@ int		imparfait(int width, int height)
   t_maze	**maze;
 
   if (width >= 100 || height >= 100)
-    return (1);
+    {
+      write(2, "Height or width bigger or equal to 100.\n", 40);
+      return (1);
+    }
   srand(time(NULL));
   maze = create_maze(width, height);
   init_maze(maze, width, height);
