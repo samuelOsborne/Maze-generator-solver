@@ -5,7 +5,7 @@
 ** Login   <samuel@epitech.net>
 ** 
 ** Started on  Fri Apr 29 12:50:06 2016 Samuel
-** Last update Sun May 29 15:17:44 2016 Samuel
+** Last update Sun May 29 15:29:07 2016 Samuel
 */
 
 #include <unistd.h>
@@ -46,6 +46,11 @@ int		imparfait(int width, int height)
 
 int		main(int ac, char **av)
 {
+  if (ac == 1)
+    {
+      write(2, "./generateur width height <parfait>\n", 36);
+      return (1);
+    }
   first_check(ac, av);
   return (0);
 }
